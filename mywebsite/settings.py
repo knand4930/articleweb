@@ -149,10 +149,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # STATIC_ROOT = '/mywebsite/main/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'assest')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "assest")]
 
 
 DAJAXICE_MEDIA_PREFIX = 'dajaxice'
