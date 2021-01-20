@@ -33,9 +33,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 's00-qkf4)mp=&+u@r-1br#d&j0xoad@phetex#987#x71utqor'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*', '103.117.180.187']
+ALLOWED_HOSTS = ['*', '103.117.180.187', 'inspirationaltale.com']
 
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
