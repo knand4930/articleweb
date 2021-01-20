@@ -1,0 +1,90 @@
+{%extends 'back/master.html' %}
+
+{% load humanize %}
+{%load static%}
+
+{%block mainblock%}
+
+<!-- Dashboard Header -->
+
+
+
+                        <!-- Mini Top Stats Row -->
+                        <div class="row">
+                            <div class="col-sm-6 col-lg-4">
+                                <!-- Widget -->
+                                <a href="{%url 'latest_article' %}" class="widget widget-hover-effect1">
+                                    <div class="widget-simple">
+                                        <div class="widget-icon pull-left themed-background-autumn animation-fadeIn">
+                                            <i class="fa fa-file-text"></i>
+                                        </div>
+                                        <h3 class="widget-content text-right animation-pullDown">
+                                            <strong>Latest</strong><br>
+                                            <small> Article</small>
+                                        </h3>
+                                    </div>
+                                </a>
+                                <!-- END Widget -->
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <!-- Widget -->
+                                <a href="{%url 'popular_article' %}" class="widget widget-hover-effect1">
+                                    <div class="widget-simple">
+                                        <div class="widget-icon pull-left themed-background-amethyst animation-fadeIn">
+                                            <i class="fa fa-file-text"></i>
+                                        </div>
+                                        <h3 class="widget-content text-right animation-pullDown">
+                                             <strong>Popular</strong>
+                                            <small>Article</small>
+                                        </h3>
+                                    </div>
+                                </a>
+                                <!-- END Widget -->
+                            </div>   
+
+                            <div class="col-sm-6 col-lg-4">
+                                <!-- Widget -->
+                                <a href="/panel/advanced/search/" class="widget widget-hover-effect1">
+                                    <div class="widget-simple">
+                                        <div class="widget-icon pull-left themed-background-fire animation-fadeIn">
+                                            <i class="fa fa-search-plus"></i>
+                                        </div>
+                                        <h3 class="widget-content text-right animation-pullDown">
+                                             <strong>Advanced</strong>
+                                            <small>Search Article</small>
+                                        </h3>
+                                    </div>
+                                </a>
+                                <!-- END Widget -->
+                            </div>
+
+<!--                            <div class="col-sm-6 col-lg-6">-->
+<!--                                &lt;!&ndash; Widget &ndash;&gt;-->
+<!--                                <a href="#" class="widget widget-hover-effect1">-->
+<!--                                    <div class="widget-simple">-->
+<!--                                        <div class="widget-icon pull-left themed-background-spring animation-fadeIn">-->
+<!--                                            <i class="gi gi-usd"></i>-->
+<!--                                        </div>-->
+<!--                                        <h3 class="widget-content text-right animation-pullDown">-->
+<!--                                            + <strong>250%</strong><br>-->
+<!--                                            <small>Sales Today</small>-->
+<!--                                        </h3>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                                &lt;!&ndash; END Widget &ndash;&gt;-->
+<!--                            </div>-->
+
+
+
+
+                        </div>
+                        <!-- END Mini Top Stats Row -->
+{{rand | intword}}
+
+{%endblock%}
+
+{%block footerblock%}
+<!-- Load and execute javascript code used only in this page -->
+        <script src="{%static 'back/js/pages/index.js'%}"></script>
+        <script>$(function(){ Index.init(); });</script>
+{%endblock%}

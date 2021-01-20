@@ -1,0 +1,192 @@
+{%extends 'back/master.html' %}
+{%load static%}
+
+{%block headblock%}
+
+<script src="{%static 'ckeditor/ckeditor.js' %}"></script>
+
+{%endblock%}
+
+
+{%block mainblock%}
+<div id="page-content">
+                        <!-- Forms General Header -->
+                        <div class="content-header">
+                            <div class="header-section">
+                                <h1>
+                                    <i class="gi gi-notes_2"></i>Setting<br><small>You Can edit and add data</small>
+                                </h1>
+                            </div>
+                        </div>
+                        <ul class="breadcrumb breadcrumb-top">
+                            <li>Add</li>
+                            <li><a href="/panel/site/setting/">Article</a></li>
+                        </ul>
+                        <!-- END Forms General Header -->
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- Basic Form Elements Block -->
+                                <div class="block">
+                                    <!-- Basic Form Elements Title -->
+                                    <div class="block-title">
+
+                                        <h2><strong>Site</strong> Setting</h2>
+                                    </div>
+                                    <!-- END Form Elements Title -->
+
+                                    <!-- Basic Form Elements Content -->
+                                    <form action="{%url 'site_setting' %}" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+
+                                         {% csrf_token %}
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                                <input type="text" id="name" name="name" value="{{site.name}}" class="form-control" placeholder="site title">
+                                                <span class="help-block">Site Title</span>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <input type="text" id="tell" name="tell" value="{{site.tell}}" class="form-control" placeholder="site tell">
+                                                <span class="help-block">site Phone no.</span>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                                <input type="text" id="pinterest" name="pinterest" value="{{site.pinterest}}" class="form-control" placeholder="Pinterest">
+                                                <span class="help-block">Pinterest Link</span>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <input type="text" id="twitter" name="twitter" value="{{site.twitter}}" class="form-control" placeholder="twitter">
+                                                <span class="help-block">Twitter Link</span>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                                <input type="text" id="youtube" name="youtube" value="{{site.youtube}}" class="form-control" placeholder="YouTube">
+                                                <span class="help-block">YouTube Link</span>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <input type="text" id="facebook" name="facebook" value="{{site.facebook}}" class="form-control" placeholder="Facebook">
+                                                <span class="help-block">Facebook <Link></span>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                                <input type="text" id="linkedin" name="linkedin" value="{{site.linkedin}}" class="form-control" placeholder="linkedin">
+                                                <span class="help-block">Linkedin Link</span>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <input type="text" id="link" name="link" value="{{site.link}}" class="form-control" placeholder="link">
+                                                <span class="help-block">Add other Link <Link></span>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                                <input type="text" id="seotxt" name="seotxt" value="{{site.seo_txt}}" class="form-control" placeholder="SEO Text">
+                                                <span class="help-block">SEO Text Maximum 192 word</span>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <input type="text" id="seokeyword" name="seokeyword" value="{{site.seo_keyword}}" class="form-control" placeholder="SEO Keyword">
+                                                <span class="help-block">SEO Keyword <Link></span>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <textarea type="text" id="txt" name="txt"  rows="6" class="form-control" placeholder="About Us">{{site.txt}}</textarea>
+                                                <span class="help-block">Site About You</span>
+                                            </div>
+                                        </div>
+
+
+
+                                        <script>
+                                            CKEDITOR.replace('txt');
+                                        </script>
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                                <input type="file" id="myfile" name="myfile" class="form-control" placeholder="choose a file">
+                                                <span class="help-block">Import image</span>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <img src="{{site.picurl}}" style="display:inline-block; width:200px;height:120px;">
+                                                <span class="help-block">Edit your image</span>
+                                            </div>
+
+                                        </div>
+
+
+
+                                           <div class="form-group">
+                                            <div class="col-md-6">
+                                                <input type="file" id="myfile2" name="myfile2" class="form-control" placeholder="choose a file">
+                                                <span class="help-block">Import image</span>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <img src="{{site.picurl2}}" style="display:inline-block; width:200px;height:120px;">
+                                                <span class="help-block">Edit your image</span>
+                                            </div>
+
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Submit</button>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                    </form>
+                                    <!-- END Basic Form Elements Content -->
+                                </div>
+                                <!-- END Basic Form Elements Block -->
+                            </div>
+
+                        </div>
+
+                        <!-- Input Groups Row -->
+
+                    </div>
+{%endblock%}
+
+{%block footerblock%}
+      <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+        <script>$(function(){ TablesDatatables.init(); });</script>
+
+{%endblock%}

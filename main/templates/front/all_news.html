@@ -1,0 +1,66 @@
+{%extends 'front/master.html' %}
+{%load static %}
+
+	{% block headblock %}
+
+<title>{{site.name}} | News Show</title>
+
+	{% endblock %}
+
+
+{%block mainblock %}
+
+
+	<!-- Latest -->
+	<section class="bg0 p-t-60 p-b-40">
+		<div class="container">
+			<div class="row p-t-35">
+
+				{% for n in allnewss %}
+
+				<div class="col-sm-6 col-md-4">
+					<!-- Item latest -->
+					<div class="m-b-45">
+						<a href="{% url 'news_details' word=n.name %}" class="wrap-pic-w hov1 trans-03">
+							<img style="display:inline-block; height: 230px; width: 350px " src="{{n.picurl}}" alt="IMG">
+						</a>
+
+						<div class="p-t-16">
+							<h5 class="p-b-5">
+								<a href="{% url 'news_details' word=n.name %}" class="f1-m-3 cl2 hov-cl10 trans-03">
+									{{n.name}}
+								</a>
+							</h5>
+							<p>{{n.short_txt | safe}}</p>
+							<br>
+
+							<span class="cl8">
+								<a href="{% url 'news_details' word=n.name %}" class="f1-s-4 cl8 hov-cl10 trans-03">
+									by {{n.writer}}
+								</a>
+
+								<span class="f1-s-3 m-rl-3">
+									-
+								</span>
+
+								<span class="f1-s-3">
+									{{n.date}}
+								</span>
+							</span>
+						</div>
+					</div>
+				</div>
+
+				{% endfor %}
+
+
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+{% endblock%}
+

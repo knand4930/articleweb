@@ -1,0 +1,69 @@
+{%extends 'back/master.html' %}
+
+
+{%load static%}
+{%block mainblock%}
+<div id="page-content">
+                        <!-- Datatables Header -->
+                        <div class="content-header">
+                            <div class="header-section">
+                                <h1>
+                                    <i class="fa fa-table"></i>Phone Tabels<br><small>You can edit or delete data</small>
+                                </h1>
+                            </div>
+                        </div>
+                        <ul class="breadcrumb breadcrumb-top">
+                            <li>Phones</li>
+                            <li><a href="">List</a></li>
+                        </ul>
+                        <!-- END Datatables Header -->
+
+                        <!-- Datatables Content -->
+                        <div class="block full">
+                            <div class="block-title">
+                                <h2><strong>Phones</strong> List</h2>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">ID</th>
+                                            <th>Title</th>
+                                            <th class="text-center">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                    {%for i in phones%}
+                                        <tr>
+                                            <td class="text-center">{{i.pk}}</td>
+                                            <td><a href="#">{{i.txt}}</a></td>
+
+                                            <td class="text-center">
+                                                <div class="btn-group">
+                                                    <a href="{%url 'news_txt_del' pk=i.pk num=2 %}" data-toggle="tooltip" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i>Delete</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {%endfor%}
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- END Datatables Content -->
+                    </div>
+
+
+
+
+{%endblock%}
+
+{%block footerblock%}
+      <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+        <script>$(function(){ TablesDatatables.init(); });</script>
+
+{%endblock%}

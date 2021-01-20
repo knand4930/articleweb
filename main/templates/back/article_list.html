@@ -1,0 +1,107 @@
+{%extends 'back/master.html' %}
+
+
+{%load static%}
+{%block mainblock%}
+<div id="page-content">
+                        <!-- Datatables Header -->
+                        <div class="content-header">
+                            <div class="header-section">
+                                <h1>
+                                    <i class="fa fa-table"></i>Article Tabels<br><small>You can edit or delete data</small>
+                                </h1>
+                            </div>
+                        </div>
+                        <ul class="breadcrumb breadcrumb-top">
+                            <li>Article</li>
+                            <li><a href="">List</a></li>
+                        </ul>
+                        <!-- END Datatables Header -->
+
+                        <!-- Datatables Content -->
+                        <div class="block full">
+                            <div class="block-title">
+                                <h2><strong>Article</strong> List</h2>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">ID</th>
+                                            <th class="text-center">Image</th>
+                                            <th>Title</th>
+                                            <th>Date | Time</th>
+                                            <th>Sub Category</th>
+                                            <th>Writer</th>
+                                            <th>Status</th>
+                                            <th>Views</th>
+                                            <th class="text-center">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                    {%for i in news%}
+                                        <tr>
+                                            <td class="text-center">{{i.rand}}</td>
+                                            <td class="text-center"><img src="{{i.picurl}}" style="display:inline-block; width:50px;height:50px;" alt="avatar" class="img-circle"></td>
+                                            <td><a href="#">{{i.name}}</a></td>
+                                            <td>{{i.date}}|{{i.time}}</td>
+                                            <td>{{i.catname}}</td>
+                                            <td>{{i.writer}}</td>
+                                            {%if i.act == 0 %}
+                                            <td>Pending</td>
+                                            {% elif i.act == 1%}
+                                            <td>Confirmed</td>
+                                            {%endif%}
+                                            <td>{{i.show}}</td>
+                                            <td class="text-center">
+                                                <div class="btn-group">
+                                                    <a href="{%url 'article_edit' pk=i.pk%}" data-toggle="tooltip" title="Edit" class="btn btn-xs btn-default"><i class="fa fa-pencil"></i>Edit</a>
+                                                    {% if perms.main.masteruser %}
+                                                    <a href="{%url 'news_publish' pk=i.pk%}" data-toggle="tooltip" title="Publish" class="btn btn-xs btn-default"><i class="fa fa-pencil"></i>Publish</a>
+                                                    {%endif%}
+                                                    <a href="{%url 'news_delete' pk=i.pk%}" data-toggle="tooltip" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i>Delete</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {%endfor%}
+
+
+                                    </tbody>
+                                </table>
+                                page {{news.number}} from {{news.paginator.num_pages}}
+                                <br/><br/>
+                                {%if news.has_previous %}
+                                <a href="?page={{news.previous_page_number}}" data-toggle="tooltip" title="Previous" class="btn btn-xs btn-default">Previous</a>
+                                {%endif%}
+
+                                {% for i in news.paginator.page_range %}
+
+                                    {% if news.number == i %}
+                                        <a href="#" onclick="return false;" data-toggle="tooltip" title="{{Disabled}}" class="btn btn-xs btn-default">{{i}}</a>
+                                    {% else %}
+                                        <a href="?page={{i}}" data-toggle="tooltip" title="{{i}}" class="btn btn-xs btn-default">{{i}}</a>
+                                    {% endif %}
+                                {% endfor %}
+
+
+                                {%if news.has_next %}
+                                <a href="?page={{news.next_page_number}}" data-toggle="tooltip" title="Next" class="btn btn-xs btn-default">Next</a>
+                                {%endif%}
+                            </div>
+                        </div>
+                        <!-- END Datatables Content -->
+                    </div>
+
+
+
+
+{%endblock%}
+
+{%block footerblock%}
+      <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+        <script>$(function(){ TablesDatatables.init(); });</script>
+
+{%endblock%}

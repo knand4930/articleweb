@@ -1,0 +1,134 @@
+{%extends 'back/master.html' %}
+{%load static%}
+
+{%block headblock%}
+
+<script src="{%static 'ckeditor/ckeditor.js' %}"></script>
+
+{%endblock%}
+
+
+{%block mainblock%}
+<div id="page-content">
+                        <!-- Forms General Header -->
+                        <div class="content-header">
+                            <div class="header-section">
+                                <h1>
+                                    <i class="gi gi-notes_2"></i>Add Article<br><small>You Can edit and add data</small>
+                                </h1>
+                            </div>
+                        </div>
+                        <ul class="breadcrumb breadcrumb-top">
+                            <li>Add</li>
+                            <li><a href="/panel/article/add">Article</a></li>
+                        </ul>
+                        <!-- END Forms General Header -->
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- Basic Form Elements Block -->
+                                <div class="block">
+                                    <!-- Basic Form Elements Title -->
+                                    <div class="block-title">
+
+                                        <h2><strong>Add</strong> Article</h2>
+                                    </div>
+                                    <!-- END Form Elements Title -->
+
+                                    <!-- Basic Form Elements Content -->
+                                    <form action="{%url 'news_add' %}" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                                <input type="text" id="newstitle" name="newstitle" class="form-control" placeholder="Article Title">
+                                                <span class="help-block">Article Title</span>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                    <select id="newscat" name="newscat" class="select-chosen" data-placeholder="Choose : Sub  Category | Category" style="width: 250px;">
+                                                        <option></option>
+
+                                                        {%for i in cat%}
+                                                        <option value="{{i.pk}}">{{i.name}} | {{i.catname}}</option>
+                                                        {%endfor%}
+
+
+                                                    </select>
+                                                    <span class="help-block">Choose : Sub  Category | Category</span>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <textarea type="text" id="newstxtshort" name="newstxtshort" rows="6" class="form-control" placeholder="Short Text"></textarea>
+                                                <span class="help-block">Write Short Article</span>
+                                            </div>
+                                        </div>
+
+
+
+                                        <script>
+                                            CKEDITOR.replace('newstxtshort');
+                                        </script>
+
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <textarea type="text" id="newstxt" name="newstxt" rows="9" class="form-control" placeholder="Body Text"></textarea>
+                                                <span class="help-block">Write Body Article</span>
+                                            </div>
+                                        </div>
+
+
+
+                                        <script>
+                                            CKEDITOR.replace('newstxt');
+                                        </script>
+
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                                <input type="file" id="myfile" name="myfile" class="form-control" placeholder="choose a file">
+                                                <span class="help-block">Import image</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <textarea type="text" id="tag" name="tag" rows="3" class="form-control" placeholder="Tags"></textarea>
+                                                <span class="help-block">Enter your tag</span>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Submit</button>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                    </form>
+                                    <!-- END Basic Form Elements Content -->
+                                </div>
+                                <!-- END Basic Form Elements Block -->
+                            </div>
+
+                        </div>
+
+                        <!-- Input Groups Row -->
+
+                    </div>
+{%endblock%}
+
+{%block footerblock%}
+      <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+        <script>$(function(){ TablesDatatables.init(); });</script>
+
+{%endblock%}

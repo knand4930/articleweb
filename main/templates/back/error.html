@@ -1,0 +1,41 @@
+{%extends 'back/master.html' %}
+
+
+{%load static%}
+
+
+{%block headblock%}
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+{%endblock%}
+
+{%block mainblock%}
+<div id="page-content">
+                        <!-- Forms General Header -->
+                        <div class="content-header">
+                            <div class="header-section">
+                                <h1>
+                                    <i class="gi gi-notes_2"></i>Error<br><small>{{error}}</small>
+                                </h1>
+                                <br/>
+                                <br/>
+
+                                <button onclick="goBack()">Go Back</button>
+                            </div>
+                        </div>
+
+                        <!-- END Forms General Header -->
+
+
+                    </div>
+{%endblock%}
+
+{%block footerblock%}
+      <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+        <script>$(function(){ TablesDatatables.init(); });</script>
+
+{%endblock%}

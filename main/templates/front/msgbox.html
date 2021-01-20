@@ -1,0 +1,132 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+
+	{% block headblock %}
+
+
+	{% endblock %}
+
+	<meta charset="UTF-8">
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'front/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'front/fonts/fontawesome-5.0.8/css/fontawesome-all.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'front/fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'front/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'front/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'front/vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'front/css/util.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'front/css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body class="animsition">
+
+	<!-- Header -->
+	<header>
+		<!-- Header desktop -->
+		<div class="container-menu-desktop">
+			<div class="topbar">
+				<div class="content-topbar h-100 p-rl-30">
+					</div>
+
+
+
+				</div>
+			</div>
+
+
+
+
+		</div>
+	</header>
+    <br>
+    <br/>
+
+	<!-- Page heading -->
+	<div class="container p-t-4 p-b-35">
+		<h2 class="f1-l-1 cl2">
+			Message
+		</h2>
+	</div>
+
+	<!-- Content -->
+	<section class="bg0 p-b-110">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-7 col-lg-8 p-b-30">
+					<div class="p-r-10 p-r-0-sr991">
+
+						<h1 class="f1-s-11 cl6 p-b-25">
+                            {{msg}}
+							</h1>
+
+                        <br>
+                        <br>
+                        <a href="/">Back to home</a>
+
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+	<!-- Footer -->
+	<footer>
+		<div class="bg11">
+			<div class="container size-h-4 flex-c-c p-tb-15">
+				<span class="f1-s-1 cl0 txt-center">
+					Copyright © 2020
+
+					<a href="#" class="f1-s-1 cl10 hov-link1"> All rights reserved our team <i class="fa fa-heart" aria-hidden="true"></i> by <a href="{{site.link}}" target="_blank">OUR TEAM</a>
+
+				</span>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<span class="fas fa-angle-up"></span>
+		</span>
+	</div>
+
+
+
+<!--===============================================================================================-->
+	<script src="{% static 'front/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'front/vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'front/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'front/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'front/js/main.js' %}"></script>
+
+</body>
+</html>
+
+
+
+
+

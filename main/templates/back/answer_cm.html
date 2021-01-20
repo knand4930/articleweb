@@ -1,0 +1,78 @@
+{%extends 'back/master.html' %}
+
+
+{%load static%}
+{%block mainblock%}
+<div id="page-content">
+                        <!-- Datatables Header -->
+                        <div class="content-header">
+                            <div class="header-section">
+                                <h1>
+                                    <i class="fa fa-table"></i>Answer Tabels<br><small>You can edit or delete data</small>
+                                </h1>
+                            </div>
+                        </div>
+                        <ul class="breadcrumb breadcrumb-top">
+                            <li>Answer</li>
+                            <li><a href="">List</a></li>
+                        </ul>
+                        <!-- END Datatables Header -->
+
+                        <!-- Datatables Content -->
+                        <div class="block full">
+                            <div class="block-title">
+                                <h2><strong>Answer </strong> List</h2>
+                            </div>
+
+
+
+                                    <!-- Basic Form Elements Content -->
+                                    <form action="{%url 'answer_cm' pk=pk %}" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+
+                                        {% csrf_token %}
+
+                                         <div class="form-group">
+                                            <div class="col-md-6">
+                                                <textarea type="text" rows="5" id="name" name="name" class="form-control" placeholder="Answer"></textarea>
+                                                <span class="help-block">Answer please</span>
+                                            </div>
+                                         </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <textarea type="text" rows="10" id="txt" name="txt" class="form-control" placeholder="Answer"></textarea>
+                                                <span class="help-block">Answer please</span>
+                                            </div>
+                                            <br/>
+
+                                            <div class="from-group">
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Submit</button>
+                                                </div>
+                                        </div>
+
+
+
+                                    </form>
+                                    <!-- END Basic Form Elements Content -->
+                                </div>
+                                <!-- END Basic Form Elements Block -->
+                            </div>
+
+                        </div>
+
+
+                        </div>
+                        <!-- END Datatables Content -->
+                    </div>
+
+
+
+
+{%endblock%}
+
+{%block footerblock%}
+      <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+        <script>$(function(){ TablesDatatables.init(); });</script>
+
+{%endblock%}

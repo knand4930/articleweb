@@ -1,0 +1,81 @@
+{%extends 'front/loginmaster.html' %}
+{%load static%}
+
+{% block titleblock %}
+
+<title>Forget Your Password</title>
+
+{%endblock%}
+{%block mainblock%}
+
+<!-- Login Alternative Row -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-1">
+                    <div id="login-alt-container">
+                        <!-- Title -->
+                        <h1 class="push-top-bottom">
+                            <i class="gi gi-flash"></i> <strong>Forget Password</strong><br>
+                            <small></small>
+                        </h1>
+                        <!-- END Title -->
+
+                        <!-- Key Features -->
+                        <ul class="fa-ul text-muted">
+                            <li><i class="fa fa-check fa-li text-success"></i> <a href="/about/" >About Us</a></li>
+                            <li><i class="fa fa-check fa-li text-success"></i><a href="/"> Home Page</a></li>
+                            <li><i class="fa fa-check fa-li text-success"></i><a href="/top/news/all/"> Full News</a></li>
+                            
+                        </ul>
+                        <!-- END Key Features -->
+
+                        
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <!-- Login Container -->
+                    <div id="login-container">
+                        <!-- Login Title -->
+                        <div class="login-title text-center">
+                            <h1><strong>Forget</strong> Your <strong>Password</strong></h1>
+                        </div>
+                        <!-- END Login Title -->
+
+                        <!-- Login Block -->
+                        <div class="block push-bit">
+                            <!-- Login Form -->
+                            
+                            <div id="result"></div>                            
+                            <form  method="post" id="form-login" class="form-horizontal">
+                                {% csrf_token %}
+                                <div class="form-group form-actions">
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+                                            
+                                            {{form}}
+                                        </div>
+                                        <span class="help-block">Continue To Forget Password</span>
+                                    </div>
+                                </div>
+                                    <div class="col-xs-8 text-right">
+                                        <button type="submit" class="btn btn-sm btn-primary" onclick="getpass()" ><i class="fa fa-angle-right"></i>Click To Continue</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12 text-center">
+                                        <a href="{%url 'mylogin' %}" id="link-reminder-login"><small>Return To Login</small></a> -
+                                        </div>
+                                </div>
+                            </form>
+                            <!-- END Login Form -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{%endblock%}

@@ -1,0 +1,83 @@
+{%extends 'back/master.html' %}
+
+
+{%load static%}
+{%block mainblock%}
+<div id="page-content">
+                        <!-- Datatables Header -->
+                        <div class="content-header">
+                            <div class="header-section">
+                                <h1>
+                                    <i class="fa fa-table"></i>Comment Tabels<br><small>You can edit or delete data</small>
+                                </h1>
+                            </div>
+                        </div>
+                        <ul class="breadcrumb breadcrumb-top">
+                            <li>comment</li>
+                            <li><a href="">List</a></li>
+                        </ul>
+                        <!-- END Datatables Header -->
+
+                        <!-- Datatables Content -->
+                        <div class="block full">
+                            <div class="block-title">
+                                <h2><strong>Comment</strong> List</h2>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">ID</th>
+
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Date && Time</th>
+                                            <th>Comment</th>
+                                            <th>Status</th>
+                                            <th class="text-center">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                    {%for i in comment%}
+                                        <tr>
+                                            <td class="text-center">{{i.news_id}}</td>
+                                            <td><a href="#">{{i.name}}</a></td>
+                                            <td>{{i.email}}</td>
+                                            <td>{{i.date}}|{{i.time}}</td>
+                                            <td>{{i.cm}}</td>
+                                            {% if i.status == 0 %}
+                                            <td>Pendding</td>
+                                            {% elif i.status == 1 %}
+                                            <td>Confirmed</td>
+                                            {%endif%}
+                                            <td class="text-center">
+                                                <div class="btn-group">
+                                                    <a href="{%url 'comments_confirm' pk=i.pk%}" data-toggle="tooltip" title="Confirm" class="btn btn-xs btn-default"><i class="fa fa-pencil"></i>Confirm</a>
+
+                                                    <a href="{%url 'comments_del' pk=i.pk%}" data-toggle="tooltip" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i>Delete</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {%endfor%}
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- END Datatables Content -->
+                    </div>
+
+
+
+
+{%endblock%}
+
+{%block footerblock%}
+      <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+        <script>$(function(){ TablesDatatables.init(); });</script>
+
+{%endblock%}

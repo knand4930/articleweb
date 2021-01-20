@@ -1,0 +1,92 @@
+{%extends 'back/master.html' %}
+{%load static%}
+
+
+{%block headblock%}
+
+<script src="{%static 'ckeditor/ckeditor.js' %}"></script>
+
+{%endblock%}
+
+
+{%block mainblock%}
+<div id="page-content">
+                        <!-- Forms General Header -->
+                        <div class="content-header">
+                            <div class="header-section">
+                                <h1>
+                                    <i class="gi gi-notes_2"></i>About Article<br><small>You Can edit data</small>
+                                </h1>
+                            </div>
+                        </div>
+                        <ul class="breadcrumb breadcrumb-top">
+                            <li>Edit</li>
+                            <li><a href="/panel/about/setting/">Article</a></li>
+                        </ul>
+                        <!-- END Forms General Header -->
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- Basic Form Elements Block -->
+                                <div class="block">
+                                    <!-- Basic Form Elements Title -->
+                                    <div class="block-title">
+
+                                        <h2><strong>About</strong> Article</h2>
+                                    </div>
+                                    <!-- END Form Elements Title -->
+
+
+                                    <!-- Basic Form Elements Content -->
+                                    <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+
+                                        {% csrf_token %}
+
+
+
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <textarea type="text" id="txt" name="txt" rows="5" class="form-control" placeholder="about Us">{{about}}</textarea>
+                                                <span class="help-block">Enter Your About Us</span>
+                                            </div>
+                                        </div>
+
+
+
+                                        <script>
+                                            CKEDITOR.replace('txt');
+                                        </script>
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Submit</button>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                    </form>
+                                    <!-- END Basic Form Elements Content -->
+
+
+                                </div>
+                                <!-- END Basic Form Elements Block -->
+                            </div>
+
+                        </div>
+
+                        <!-- Input Groups Row -->
+
+                    </div>
+{%endblock%}
+
+{%block footerblock%}
+      <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+        <script>$(function(){ TablesDatatables.init(); });</script>
+
+{%endblock%}

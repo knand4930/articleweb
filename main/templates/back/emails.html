@@ -1,0 +1,124 @@
+{%extends 'back/master.html' %}
+
+
+{%load static%}
+{%block mainblock%}
+
+
+<div id="page-content">
+
+                        <!-- Datatables Header -->
+                        <div class="content-header">
+                            <div class="header-section">
+                                <h1>
+                                    <i class="fa fa-table"></i>Emails Tabels<br><small>You can edit or delete data</small>
+                                </h1>
+                            </div>
+                        </div>
+                        <ul class="breadcrumb breadcrumb-top">
+                            <h1>Emails</h1>
+                            <li><a href="">List</a></li>
+                        </ul>
+                        <!-- END Datatables Header -->
+
+                        <!-- Datatables Content -->
+                        <div class="block full">
+                            <div class="block-title">
+                                <h2><strong>Emails</strong> List</h2>
+                            </div>
+                                    <!-- Basic Form Elements Content -->
+                                    <form action="{%url 'send_email' %}" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+
+                                        {% csrf_token %}
+                                         <div class="form-group">
+                                            <div class="col-md-6">
+                                                <textarea type="text" id="name" name="name" class="form-control">Subjects</textarea>
+                                                <span class="help-block">Write Email Subjects</span>
+                                            </div>
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+
+                                                <textarea type="text" id="txt" name="txt" rows="6" class="form-control">Email Group</textarea>
+                                                <span class="help-block">Write Short Article</span>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Submit</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                    <!-- END Basic Form Elements Content -->
+
+
+                        </div>
+</div>
+
+
+                        <!-- Datatables Content -->
+                        <div class="block full">
+                            <div class="block-title">
+                                <h2><strong>Emails</strong> List</h2>
+                            </div>
+
+                            <form action="{%url 'check_mychecklist' %}" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+
+                                        {% csrf_token %}
+
+                            <div class="table-responsive">
+
+                                <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>&nbsp</th>
+                                            <th class="text-center">ID</th>
+                                            <th>Emails</th>
+                                            <th class="text-center">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                    {%for i in emails%}
+                                        <tr>
+<!--                                            <td><input type="checkbox" name="{{i.pk}}" id="check"></td>-->
+                                            <td><input type="checkbox" name="checks[]" value="{{i.pk}}"></td>
+                                            <td class="text-center">{{i.pk}}</td>
+                                            <td>{{i.txt}}</td>
+
+                                            <td class="text-center">
+                                                <div class="btn-group">
+                                                    <a href="{%url 'news_txt_del' pk=i.pk num=1 %}" data-toggle="tooltip" title="Delete" class="btn btn-xs btn-danger"><i class="fa fa-times"></i>Delete</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {%endfor%}
+
+
+                                    </tbody>
+                                </table>
+
+
+                                <div class="form-group">
+                                            <div class="col-md-12">
+                                                <!-- <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Submit</button> -->
+                                            </div>
+                                </div>
+
+                            </div>
+                            </form>
+                        </div>
+                        <!-- END Datatables Content -->
+                    </div>
+
+
+
+
+{%endblock%}
+
+{%block footerblock%}
+      <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+        <script>$(function(){ TablesDatatables.init(); });</script>
+
+{%endblock%}

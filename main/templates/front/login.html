@@ -1,0 +1,187 @@
+{%extends 'front/loginmaster.html' %}
+{%load static %}
+
+{% block titleblock %}
+
+<title>You Are Login / Register </title>
+{%endblock%}
+
+{%block mainblock%}
+<!-- Login Alternative Row -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-1">
+                    <div id="login-alt-container">
+                        <!-- Title -->
+                        <h1 class="push-top-bottom">
+                            <i class="gi gi-flash"></i> <strong>Admin</strong><br>
+                            <small>Sign In/Sign Up</small>
+                        </h1>
+                        <!-- END Title -->
+
+                        <!-- Key Features -->
+                        <ul class="fa-ul text-muted">
+                            <li><i class="fa fa-check fa-li text-success"></i><a href="/about/" >About Us</a> </li>
+                            <li><i class="fa fa-check fa-li text-success"></i><a href="/" >Home Page</a> </li>
+                            <li><i class="fa fa-check fa-li text-success"></i><a href="/top/news/all/" >All News</a> </li>
+                            
+                        </ul>
+                        <!-- END Key Features -->
+
+                      
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <!-- Login Container -->
+                    <div id="login-container">
+                        <!-- Login Title -->
+                        <div class="login-title text-center">
+                            <h1><strong>Login</strong> or <strong>Register</strong></h1>
+                        </div>
+                        <!-- END Login Title -->
+
+                        <!-- Login Block -->
+                        <div class="block push-bit">
+                            <!-- Login Form -->
+                            <form action="{%url 'mylogin' %}" method="post" id="form-login" class="form-horizontal">
+                                
+                                {%csrf_token%}
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+                                            <input type="text" id="username" name="username" class="form-control input-lg" placeholder="username">
+                                        </div>
+                                        <span class="help-block">Enter Your UserName</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                                            <input type="password" id="password" name="password" class="form-control input-lg" placeholder="Password">
+                                        </div>
+                                        <span class="help-block">Enter Your Login Password</span>
+                                    </div>
+                                </div>
+                                <div class="form-group form-actions">
+
+                                    <div class="col-xs-8 text-right">
+                                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Login to Dashboard</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12 text-center">
+                                        <a href="/password_reset/" id="link-reminder-login"><small>Forgot password?</small></a> -
+                                        <a href="javascript:void(0)" id="link-register-login"><small>Create a new account</small></a>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END Login Form -->
+
+                            <!-- Reminder Form -->
+                            <form action="login_alt.html#reminder" method="post" id="form-reminder" class="form-horizontal display-none">
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+                                            <input type="text" id="reminder-email" name="reminder-email" class="form-control input-lg" placeholder="Email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12 text-center">
+                                        <small>Did you remember your password?</small> <a href="javascript:void(0)" id="link-reminder"><small>Login</small></a>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END Reminder Form -->
+
+                            <!-- Register Form -->
+                            <form action="{%url 'myregister'%}" method="post" id="form-register" class="form-horizontal display-none">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-user"></i></span>
+                                            <input type="text" id="name" name="name" class="form-control input-lg" placeholder="Full Name" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                     <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-user"></i></span>
+                                            <input type="text" id="uname" name="uname" class="form-control input-lg" placeholder="Username" required>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+                                            <input type="text" id="email" name="email" class="form-control input-lg" placeholder="Email" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                                            <input type="password" id="password1" name="password1" class="form-control input-lg" placeholder="Password" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                                            <input type="password" id="password2" name="password2" class="form-control input-lg" placeholder="Verify Password" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-actions">
+                                    <div class="col-xs-6">
+                                        <a href="#modal-terms" data-toggle="modal" class="register-terms">Terms</a>
+                                        <label class="switch switch-primary" data-toggle="tooltip" title="Agree to the terms">
+                                            <input type="checkbox" id="terms" name="terms" required>
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                        <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Register Account</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12 text-center">
+                                        <small>Do you have an account?</small> <a href="javascript:void(0)" id="link-register"><small>Login</small></a>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END Register Form -->
+                        </div>
+                        <!-- END Login Block -->
+                    </div>
+                    <!-- END Login Container -->
+                </div>
+            </div>
+        </div>
+        <!-- END Login Alternative Row -->
+
+        <!-- Modal Terms -->
+        <div id="modal-terms" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Terms &amp; Conditions</h4>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- END Modal Terms -->
+
+{%endblock%}

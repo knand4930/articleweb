@@ -1,0 +1,84 @@
+{%extends 'front/loginmaster.html' %}
+{%load static%}
+{% block titleblock %}
+
+<title>Your Forget Password Confirmed</title>
+{%endblock%}
+
+
+{%block mainblock%}
+
+<!-- Login Alternative Row -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-1">
+                    <div id="login-alt-container">
+                        <!-- Title -->
+                        <h1 class="push-top-bottom">
+                            <i class="gi gi-flash"></i> <strong>Enter Your New Password</strong><br>
+                            <small></small>
+                        </h1>
+                        <!-- END Title -->
+
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <!-- Login Container -->
+                    <div id="login-container">
+                        <!-- Login Title -->
+                        <div class="login-title text-center">
+                            <h1><strong>Enter</strong> New <strong>Password</strong></h1>
+                        </div>
+                        <!-- END Login Title -->
+
+                        <!-- Login Block -->
+                        <div class="block push-bit">
+                            <!-- Login Form -->                          
+                            <form  method="post" id="form-login" class="form-horizontal">
+                                {%csrf_token%}
+                                <div class="form-group form-actions">
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                                            
+                                            {{form}}
+                                        </div>
+                                        <span class="help-block">Continue To Forget Password</span>
+                                    </div>
+                                </div>
+                                    <div class="col-xs-8 text-right">
+                                        <button type="submit" class="btn btn-sm btn-primary" onclick="getpass()" ><i class="fa fa-angle-right"></i>Click To Continue</button>
+                                    </div>
+                                </div>
+                                
+                            </form>
+                            <!-- END Login Form -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{%endblock%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <h1>Enter Your New Password</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">
+            Request To Reset
+        </button>
+    </form>
+</body>
+</html>

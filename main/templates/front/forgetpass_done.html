@@ -1,0 +1,46 @@
+{%extends 'front/loginmaster.html' %}
+{%load static%}
+
+{% block titleblock %}
+
+<title>Your Forget Password Done</title>
+{%endblock%}
+
+{%block mainblock%}
+
+<!-- Login Alternative Row -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-1">
+                    <div id="login-alt-container">
+                        <!-- Title -->
+                        <br/>
+                        <br/>   
+                        <br/>
+
+                        <h1 class="push-top-bottom">
+                            <i class="gi gi-flash"></i> <strong>Forget Password Done</strong><br>
+                            <small></small>
+                        </h1>
+                        <h1 class="push-top-bottom">
+                            <i class="gi gi-flash"></i> <strong>Please Check your Email</strong><br>
+                            <small></small>
+                        </h1>
+                        <!-- END Title -->
+                        <a href="{%url 'mylogin' %}"><h2> <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Login To Dashboard</button></h2></a>
+
+                        <a href="/"> <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i>Click To Home Page</button>
+                        </a>
+
+                        
+                      
+                    </div>
+                </div>
+                <div class="col-md-5">
+                  
+                </div>
+            </div>
+        </div>
+
+
+{%endblock%}

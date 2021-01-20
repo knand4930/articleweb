@@ -1,0 +1,102 @@
+{%extends 'back/master.html' %}
+{%load static%}
+
+{%block headblock%}
+
+<script src="{%static 'ckeditor/ckeditor.js' %}"></script>
+
+{%endblock%}
+
+
+{%block mainblock%}
+<div id="page-content">
+                        <!-- Forms General Header -->
+                        <div class="content-header">
+                            <div class="header-section">
+                                <h1>
+                                    <i class="gi gi-notes_2"></i>Upload Your Profile Image<br><small></small>
+                                </h1>
+                            </div>
+                        </div>
+                        <ul class="breadcrumb breadcrumb-top">
+                            <li>Profile</li>
+                            <li><a href="/panel/article/add">Image</a></li>
+                        </ul>
+                        <!-- END Forms General Header -->
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- Basic Form Elements Block -->
+                                <div class="block">
+                                    <!-- Basic Form Elements Title -->
+                                    <div class="block-title">
+
+                                        <h2><strong>Profile</strong> Image</h2>
+                                    </div>
+                                    <!-- END Form Elements Title -->
+
+                                    <!-- Basic Form Elements Content -->
+                                    <form action="{%url 'users_profiles' %}" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+
+                                        {% csrf_token %}
+
+
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                                <input type="file" id="myfile2" name="myfile2" class="form-control" placeholder="choose a file">
+                                                <span class="help-block">Import image</span>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <img src="{{site.picurl2}}" style="display:inline-block; width:200px;height:120px;">
+                                                <span class="help-block">Upload your image Profile</span>
+                                            </div>
+
+                                        </div>
+
+
+
+                                           <div class="form-group">
+                                            <div class="col-md-6">
+                                                <input type="file" id="myfile3" name="myfile3" class="form-control" placeholder="choose a file">
+                                                <span class="help-block">Import image</span>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <img src="{{site.picurl3}}" style="display:inline-block; width:200px;height:120px;">
+                                                <span class="help-block">Edit your image Profile </span>
+                                            </div>
+
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Submit</button>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                    </form>
+                                    <!-- END Basic Form Elements Content -->
+                                </div>
+                                <!-- END Basic Form Elements Block -->
+                            </div>
+
+                        </div>
+</div>
+
+                        <!-- Input Groups Row -->
+</div>
+
+{%endblock%}
+
+{%block footerblock%}
+      <script src="{% static 'back/js/pages/tablesDatatables.js' %}"></script>
+        <script>$(function(){ TablesDatatables.init(); });</script>
+
+{%endblock%}
