@@ -35,7 +35,7 @@ SECRET_KEY = 's00-qkf4)mp=&+u@r-1br#d&j0xoad@phetex#987#x71utqor'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', '103.117.180.187']
 
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -108,8 +108,8 @@ DATABASES = {
         'NAME': 'mywebsite',
         'PORT': '5432',
         'PASSWORD': '1234',
-        'USER' : 'postgres',
-        'HOST': 'localhost',
+        'USER' : 'mywebsite',
+        'HOST': '103.117.180.187',
     }
 }
 
