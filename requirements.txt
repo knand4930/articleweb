@@ -97,14 +97,11 @@ PyHamcrest==2.0.2
 pylint==2.5.3
 pyOpenSSL==19.1.0
 pyparsing==2.4.7
-pypiwin32==223
 pyquery==1.4.1
 python-dateutil==1.5
 python-telegram-bot==12.8
 pyttsx3==2.90
 pytz==2020.1
-pywin32==228
-pywin32-ctypes==0.2.0
 PyYAML==5.3.1
 qrcode==6.1
 ratelim==0.1.6
@@ -135,8 +132,6 @@ typing-extensions==3.7.4.3
 urllib3==1.25.10
 webdriverdownloader==1.1.0.3
 webencodings==0.5.1
-websocket-client @ file:///D:/bld/websocket-client_1598373911115/work
-websockets @ file:///D:/bld/websockets_1598999339048/work
 whitenoise==5.2.0
 wikipedia==1.4.0
 wincertstore==0.2
