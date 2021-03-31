@@ -101,7 +101,7 @@ python-dateutil==1.5
 python-telegram-bot==12.8
 pyttsx3==2.90
 pytz==2020.1
-PyYAML==5.3.1
+PyYAML==5.4
 qrcode==6.1
 ratelim==0.1.6
 readme-renderer==28.0
